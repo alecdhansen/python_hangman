@@ -1,6 +1,5 @@
 from random import choice
 import time
-import colorama
 from colorama import Fore, Back, Style
 from random_word import RandomWords
 
@@ -54,19 +53,20 @@ def hangman(word):
                 display[index] = guess
                 if guess in display and not wrong_letters:
                     print(Fore.GREEN, Style.BRIGHT, "You guessed a letter right!")
-                elif guess in display and wrong_letters:
-                    print(
-                        Style.DIM,
-                        Fore.GREEN,
-                        "You already got that one right!",
-                        Style.RESET_ALL,
-                    )
+                # elif guess in display and wrong_letters:
+                #     print(
+                #         Style.DIM,
+                #         Fore.GREEN,
+                #         "You already got that one right!",
+                #         Style.RESET_ALL,
+                #     )
+                #     print()
             index = index + 1
         print(Fore.RESET, "".join(display))
         print("Lives:", chances)
         print()
         if "_" not in display:
-            print(Fore.GREEN, Back.GREEN, "You win! Nicely done!")
+            print(Fore.WHITE, Back.GREEN, "You win! Nicely done!")
             play = False
         elif chances == 0:
             print(Fore.RED, Back.BLACK, Style.BRIGHT, "You lose!")
